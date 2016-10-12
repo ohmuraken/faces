@@ -1,0 +1,47 @@
+<!doctype html>
+<title>7faces</title>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap -->
+	<!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/dropzone.css')}}" />
+
+	<!-- Font-Awesome -->
+	<link rel="stylesheet"  href="{{url_for('static', filename='css/font-awesome.css')}}">
+
+	<!-- Dropzone -->
+	<script src="{{ url_for('static', filename='js/dropzone.js') }}"></script>
+</head>
+<body>
+
+	<div id="header">
+		<center><img src="{{ url_for('static', filename='img/logo.png') }}" class="logoimg"></center>
+	</div>
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	{% block body %}{% endblock %}
+
+	<div id="footer">
+		<div class="copy">
+			<span>© <a href="https://github.com/ohmuraken">ohmuraken</a> 2015.</span>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

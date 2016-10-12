@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div id="content">
+        <div class="container">
+        <div class="button-box">
+            <center>
+                <form action="upload" method="post" class="dropzone" id="my-awesome-dropzone" >
+                </form>
+
+                <div>
+                    <form action="classify">
+                        <input type="submit" value="Classify" class="btn btn-noimage" id="submit-btn" style="margin-top:50px;" disabled="disable">
+                    </form>
+                </div>
+
+                <script type="text/javascript">
+                    Dropzone.options.myAwesomeDropzone = {
+                        paramName: "file",
+                        responseText: "no file",
+                        init: function() {
+                            this.on("success", function(paramName, responseText) {
+                                var submit_btn = document.getElementById("submit-btn");
+                                submit_btn.className = "btn btn-default";
+                                submit_btn.disabled = false;
+                            });
+                        }
+                    };
+                </script>
+            </center>
+        </div>
+    </div>
+{% endblock %}

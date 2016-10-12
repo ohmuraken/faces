@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div id="content">
+        <div class="container">
+            <div class="button-box">
+                <center>
+                    <img src="{{ filepath }}" alt="Uploaded Picture" style="width:500px;">
+                    <h3 class="text-muted">{{ name }} </h3>
+                    <form action="refresh">
+                        <input type="submit" value="Retry" class="btn btn-default" id="submit-btn" style="margin-top:50px;">
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+{% endblock %}
